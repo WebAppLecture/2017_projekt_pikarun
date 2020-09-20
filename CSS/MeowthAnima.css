@@ -1,0 +1,220 @@
+/*Mauzi gesichter und Animationen*/
+#Mauzibox
+{
+    margin-top: 530px;
+    margin-left: 440px;
+    position: relative;
+}
+
+@-webkit-keyframes mauzieyes
+{
+    0% {background-image: url("../Picdateien/Meowth onlyhead.png");}
+    30% {background-image: url("../Picdateien/Meowth onlyhead.png");}
+    50% {background-image: url("../Picdateien/Meowth onlyheadsmilingmundzu.png");}
+    70% {background-image: url("../Picdateien/Meowth onlyhead.png");}
+    100% {background-image: url("../Picdateien/Meowth onlyhead.png");}
+}
+
+@-webkit-keyframes mauzitalki
+{
+    0% {background-image: url("../Picdateien/Meowth onlyheadsmiling augen auf mundauf.png");}
+    30% {background-image: url("../Picdateien/Meowth onlyhead.png");}
+    50% {background-image: url("../Picdateien/Meowth onlyheadsmiling augen auf mundauf.png");}
+    70% {background-image: url("../Picdateien/Meowth onlyhead.png");}
+    100% {background-image: url("../Picdateien/Meowth onlyheadsmiling augen auf mundauf.png");}
+}
+
+.mauzitalk
+{
+    background-image: url("../Picdateien/Meowth onlyheadsmiling augen auf mundauf.png");
+    background-size: 102%;
+    background-repeat: no-repeat;
+    height: 500px;
+    width: 500px;
+    margin-top: -550px;
+    margin-left: -150px;
+    transform: rotate(-30deg);
+    position: absolute;
+    z-index: 110;
+    animation-name: mauzitalki;
+    animation-duration: 0.8s;
+    animation-iteration-count: infinite;
+}
+
+.mauzitwinker
+{
+    background-image: url("../Picdateien/Meowth onlyhead twinker.png");
+    background-size: 102%;
+    background-repeat: no-repeat;
+    height: 500px;
+    width: 500px;
+    margin-top: -550px;
+    margin-left: -150px;
+    transform: rotate(-30deg);
+    position: absolute;
+    z-index: 110;
+}
+
+.mauzicash
+{
+    background-image: url("../Picdateien/Meowth onlyhead casheyes mouthopen.png");
+    background-size: 102%;
+    background-repeat: no-repeat;
+    height: 500px;
+    width: 500px;
+    margin-top: -550px;
+    margin-left: -150px;
+    transform: rotate(-30deg) scale(1.07);
+    transition: all 0.2s ease-in-out;
+    position: absolute;
+    z-index: 110;
+}
+
+.nekohead
+{
+    background-image: url("../Picdateien/Meowth onlyhead.png");
+    background-size: 102%;
+    background-repeat: no-repeat;
+    height: 500px;
+    width: 500px;
+    margin-top: -550px;
+    margin-left: -150px;
+    transform: rotate(-30deg);
+    position: absolute;
+    z-index: 100;
+    animation-name: mauzieyes;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes mauzimove
+{
+    0% {
+        transform: rotate(-30deg);
+        -webkit-transform: rotate(-30deg);
+    }
+    50% {
+        transform: rotate(-20deg);
+        -webkit-transform: rotate(-20deg);
+    }
+    100% {
+        transform: rotate(-30deg);
+        -webkit-transform: rotate(-30deg);
+    }
+}
+
+#Mauzibox:hover #Mauzioh
+{
+    animation: mauzimove 3s infinite, mauzieyes 2s infinite;
+    transform-origin: center;
+}
+
+@-webkit-keyframes tailspin
+{
+    0%
+    {
+        transform: rotate(-60deg);
+        -webkit-transform: rotate(-60deg);
+    }
+    50%
+    {
+        transform: rotate(10deg);
+        -webkit-transform: rotate(10deg);
+    }
+    100%
+    {
+        transform: rotate(-60deg);
+        -webkit-transform: rotate(-60deg);
+    }
+}
+
+#Meowthtail
+{
+    background-image: url("../Picdateien/meowthtail.png");
+    background-size: 90%;
+    background-repeat: no-repeat;
+    height: 280px;
+    width: 250px;
+    margin-left: 250px;
+    margin-top: -480px;
+    position: absolute;
+    z-index:1;
+    transform-origin: left bottom;
+    animation-name: tailspin;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+
+}
+
+@-webkit-keyframes rechtepfotemove
+{
+    0% {
+        left: 0;
+
+    }
+    50% {
+        left: 30px;
+    }
+    100% {
+        left: 0;
+    }
+
+}
+
+#Mauzipfoterechts
+{
+    background-image: url("../Picdateien/pfote rechts.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height:100px;
+    width:100px;
+    margin-top:-380px;
+    margin-left: 215px;
+    transform: rotate(10deg);
+    position: absolute;
+    z-index: 100;
+}
+
+#Mauzibox:hover #Mauzipfoterechts
+{
+    animation-name: rechtepfotemove;
+    animation-duration: 2.5s;
+    animation-delay: 0.5s;
+    animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes linkepfotemove
+{
+    0% {
+        top: 0;
+
+    }
+    50%{
+        top:25px;
+    }
+    100% {
+        top: 0;
+    }
+
+}
+
+#Mauzipfotelinks
+{
+    background-image: url("../Picdateien/pfote rechts.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height:100px;
+    width: 100px;
+    margin-top:-210px;
+    margin-left: 10px;
+    position: absolute;
+    transform: scaleX(-1) rotate(100deg);
+    z-index: 100;
+}
+
+#Mauzibox:hover #Mauzipfotelinks
+{
+    animation-name: linkepfotemove;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+}

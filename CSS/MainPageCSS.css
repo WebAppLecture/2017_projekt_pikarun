@@ -1,0 +1,265 @@
+/*Grundsetting des Page-Grinds, etc.*/
+html
+{
+    height: 100%;
+    background: linear-gradient(#333434, darkslategray);
+    margin: auto;
+}
+
+@font-face
+{
+    font-family: 'Pokemonlogo';
+    src: url('../Typography/Pokemon Solid.ttf') format('truetype');
+}
+
+@font-face
+{
+    font-family: "PokemonlogoKapitals";
+    src: url("../Typography/Pocket Monk.otf") format("opentype")
+}
+
+@font-face
+{
+    font-family: "PokemonGameBoyLook";
+    src: url("../Typography/Pokemon GB.ttf") format("opentype");
+}
+@font-face {
+    font-family: "SupermarioLogo";
+    src: url("../Typography/SuperMario256.ttf") format("truetype");
+}
+
+#headtitle
+{
+    position: relative;
+    text-align: left;
+    margin-top: 20px;
+    margin-left: 400px;
+    margin-bottom: 20px;
+    font-family: "PokemonlogoKapitals", Arial, sans-serif;
+    font-size: 60pt;
+    color: #ffcb05;
+    letter-spacing: 3px;
+    text-shadow: -7px 7px #1d2c5e;
+    -webkit-text-stroke: 5px #3a5ca8;
+}
+#feat
+{
+    background-image: url("feat.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    height: 80px;
+    width:120px;
+    margin-left: 780px;
+    margin-top: -50px;
+}
+
+#subtitle
+{
+    font-family: "SupermarioLogo", Arial, sans-serif;
+    font-size: 60pt;
+    margin-left: 760pt;
+    text-shadow: -7px 7px black;
+    -webkit-text-stroke: 8px black;
+    letter-spacing: -20px;
+    line-height: 0.70;
+}
+
+.blue
+{
+    color: #15a7db;
+    position: relative;
+    z-index: 100;
+}
+.gold
+{
+    color: #f3d111;
+    position: relative;
+    z-index: 10;
+}
+.red
+{
+    color: #e73d2a;
+    position: relative;
+    z-index: 50;
+}
+.green
+{
+    color: #5eb850;
+    position: relative;
+    z-index: 20;
+
+}
+
+#mainactionwindow
+{
+    margin-top: -150px;
+    margin-left: -140px;
+}
+
+#PlayPause
+{
+    display: none;
+    font-family: "PokemonGameBoyLook", cursive, sans-serif;
+    margin-left: 260px;
+    margin-top: -100px;
+    color:red;
+    font-size: 56pt;
+}
+#Wholepokeball:hover #PlayPause
+{
+    display:block;
+    text-shadow: 0 0 40px #fff;
+}
+
+
+#Speechbubble
+{
+    width: 300px;
+    height:auto;
+    position:absolute;
+    padding:35px;
+    /*margin:1em 0 3em;*/
+    margin-top: 280px;
+    margin-left: 200px;
+    margin-right:30px;
+    border:5px solid black;
+    text-align: center;
+    line-height: 1.2;
+    font-family: "PokemonGameBoyLook", cursive, sans-serif;
+    font-size: 14pt;
+    color: darkslategrey;
+    background:ghostwhite;
+    /* css3 */
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    border-radius:10px;
+}
+
+#Speechbubble:before
+{
+    content:"";
+    position:absolute;
+    border-style:solid;
+    /* reduce the damage in FF3.0 */
+    display:block;
+    width:0;
+    top: 10px; /* controls vertical position */
+    bottom: auto;
+    left: auto;
+    right: -30px; /* value = - border-left-width - border-right-width */
+    border-width: 15px 0 15px 30px;
+    border-color: transparent black;
+}
+
+#Speechbubble:after
+{
+    content:"";
+    position:absolute;
+    border-style:solid;
+    /* reduce the damage in FF3.0 */
+    display:block;
+    width:0;
+    top:16px; /* value = (:before top) + (:before border-top) - (:after border-top) */
+    bottom:auto;
+    left:auto;
+    right:-21px; /* value = - border-left-width - border-right-width */
+    border-width:9px 0 9px 21px;
+    border-color:transparent ghostwhite;
+}
+
+#alleButton
+{
+    position: absolute;
+    height: 100px;
+    width: 300px;
+    margin-left: 200px;
+}
+
+#inputname
+{
+    z-index: 10;
+    position: absolute;
+   /* margin-top: 250px;*/
+}
+
+#inputbox
+{
+    height: 40px;
+    width: 373px;
+    margin-top: 690px;
+    margin-left: 0;
+}
+
+#inputbox:hover
+{
+    box-shadow: 0 0 20px goldenrod;
+}
+
+.button
+{
+    text-align: center;
+    font-family: "PokemonGameBoyLook", cursive, sans-serif;
+    font-size: 11pt;
+    letter-spacing: -2px;
+    margin-top: 10px;
+    margin-left: 0;
+    color: darkslategrey;
+    height: 50px;
+    width: 385px;
+    border:5px solid black;
+    border-radius: 10px;
+    background:ghostwhite;
+}
+
+.button:hover
+{
+    box-shadow: 0 0 20px goldenrod;
+}
+
+#StartGame
+{
+    background: linear-gradient(goldenrod, gold);
+    margin-top: 100px;
+    font-size: 24pt;
+    text-align: center;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    height: 100px;
+    width: 220px;
+    border: 5px solid gold;
+    border-radius: 7px;
+    z-index: 40;
+}
+
+#StartGame:hover
+{
+    box-shadow: 0 0 20px goldenrod;
+}
+
+#GameStartWindow
+{
+    height: 480px;
+    width: 780px;
+    display: flex;
+    background-color: ghostwhite;
+    border: 7px solid black;
+    border-radius: 7px;
+    position: absolute;
+    margin-top:  -330px;
+    margin-left: 500px;
+    z-index: 20;
+}
+
+#myCanvas
+{
+    height:480px;
+    width: 780px;
+    position: relative;
+    z-index: 1;
+}
+
+#Kontrollwerte
+{
+    margin-left: 600px;
+}
+

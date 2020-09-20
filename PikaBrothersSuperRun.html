@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PokeMario Game</title>
+    <link rel="stylesheet" href="CSS/MainPageCSS.css">
+    <link rel="stylesheet" href="CSS/MeowthAnima.css">
+    <link rel="stylesheet" href="CSS/pokeball.css">
+    <link rel="stylesheet" href="CSS/Pokedex.css">
+</head>
+<body id="body">
+
+        <div id="GameHeader">
+            <header id="headtitle">PoKéMon</header>
+            <div id="feat"></div>
+            <header id="subtitle">
+                <span class="blue" id="s">S</span>
+                <span class="gold" id="u">u</span>
+                <span class="red" id="p">p</span>
+                <span class="green" id="e">e</span>
+                <span class="gold" id="r1">r</span>
+                <br>
+                <span class="red" id="m">M</span>
+                <span class="green" id="a">a</span>
+                <span class="gold" id="r2">r</span>
+                <span class="blue" id="i">i</span>
+                <span class="green" id="o">o</span>
+            </header>
+        </div>
+         <div id="Wholepokeball" onclick="playPause()">
+            <div id="moving-container">
+                <div id="pokeballbox">
+                         <!-- pokeball -->
+                    <div id="pokeball">
+                        <div class="pokeball-details"></div>
+                    </div>
+                </div>
+            </div>
+            <span id="PlayPause">Pause Music</span>
+         </div>
+
+        <div id="wholepokedex">
+            <div id="upperdex">
+                <div class="halfcircleleftup">
+                    <div id="firsthalfcircleleft"></div>
+                    <div id="secondhalfcircleleft"></div>
+                    <div id="thirdhalfcircleleft"></div>
+                    <div id="fourthhalfcircleleft"></div>
+                </div>
+
+                <div class="halfcirclerightup">
+                    <div id="firsthalfcircleright"></div>
+                    <div id="secondhalfcircleright"></div>
+                    <div id="thirdhalfcircleright"></div>
+                    <div id="fourthhalfcircleright"></div>
+                </div>
+                <div id="splendidaup"></div>
+            </div>
+
+            <div id="screenbox">
+                <div id="screen"></div>
+                <span id="greet" class="dextypo"></span>
+
+                <div id="timebox">
+                    <input id="timecur" type="text" class="counter">
+
+                    <input id="timerec" type="text" class="counter">
+                </div>
+                <div id="lifeandcoinsbox">
+                    <div id="lifebox">
+                        <span id="lifenumber" class="dextypo"></span>
+                        <div id="lifeicon"></div>
+                    </div>
+                    <div id="coinbox">
+                        <span id="coincol" class="dextypo"></span>
+                        <div id="coinicon"></div>
+                        <span id="cointot" class="dextypo"></span>
+                    </div>
+                </div>
+                <div id="restinput">
+                    <span id="fortschritt" class="dextypo"></span>
+                    <span id="schwierigkeitsgrad" class="dextypo"></span>
+                    <span id="keyactivity" class="dextypo"></span>
+
+                </div>
+                <!--<input type="range" class="dextypo">-->
+            </div>
+
+            <div id="lowerdex">
+                <div id="DexOpenerLow">
+                    <div id="outercircle"></div>
+                    <div id="innercircle"></div>
+                    <div id="dot"></div>
+                </div>
+
+                <div class="linksunten">
+                    <div id="fhcleft"></div>
+                    <div id="scndhcleft"></div>
+                    <div id="thirdhcleft"></div>
+                    <div id="fourthhcleft"></div>
+                </div>
+					
+                <div class="halfcirclerightdown">
+                    <div id="fhcright"></div>
+                    <div id="scndhcright"></div>
+                    <div id="thirdhcright"></div>
+                    <div id="fourthhcright"></div>
+                    <div id="splendidalow"></div>
+                </div>
+            </div>
+
+        </div>
+
+
+<div id="mainactionwindow">
+    <div id="Speechbubble">
+    </div>
+    <div id="alleButton">
+
+        <div id="inputname">
+
+                <input type="text" id="inputbox" class="button" placeholder="Bestätige mit 2tem Klick" onclick="inputbox_click()">
+                <input type="button" id="button1" class="button" onclick="button1_click()">
+                <input type="button" id="button2" class="button" onclick="button2_click()">
+                <input type="button" id="button3" class="button" onclick="button3_click()">
+                <input type="button" id="button4" class="button" onclick="button4_click()">
+
+
+        </div>
+    <div id="Mauzibox" class="wholeneko">
+        <div id="Mauzioh" class="nekohead" onclick="main()"></div>
+        <div id="Meowthtail"></div>
+        <div id="Mauzipfotelinks" class="pawnl"></div>
+        <div id="Mauzipfoterechts" class="pawnr"></div>
+    </div>
+
+    <div id="GameStartWindow">
+        <img id="dealwithit" src="Picdateien/dealwithit.png" hidden>
+        <img id="pikasprite" src="Picdateien/ani.png" hidden>
+        <img id="worldcut" src="Picdateien/world.png" hidden>
+        <img id="brick" src="Picdateien/block.png" hidden>
+        <img id="coin" src="Picdateien/coin.png" hidden>
+        <img id="gras" src="Picdateien/Grasrand.png" hidden>
+        <canvas id="myCanvas" width="780px" height="480px"></canvas>
+    </div>
+
+    <div>
+        <audio id="Intro">
+            <source src="Sound/PokemonRedIntroTheme.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="miauzgenau">
+            <source src="Sound/Miauz,%20genau!_01.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="pikasnd">
+            <source src="Sound/pikachu_snd01.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="coins">
+            <source src="Sound/Super%20Mario%20Coin%20Sound.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="jumpsnd">
+            <source src="Sound/SMBrosJumpSnd_01.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="deathsnd">
+            <source src="Sound/SMBDeathSound.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="gamesnd">
+            <source src="Sound/Poke_gamesnd.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="victoryaudi">
+            <source src="Sound/PokemonVictory_01.mp3" type="audio/mpeg">
+        </audio>
+
+
+
+    </div>
+
+        <div id="Kontrollwerte">
+            <input type="text" placeholder="status a" name="he" value="0" id="test1"/>
+            <p>time</p>
+            <input type="text" placeholder="status a" name="he" value="0" id="test2"/>
+            <p>position</p>
+            <input type="text" placeholder="status a" name="he" value="0" id="test3"/>
+            <input type="text" placeholder="status a" name="he" value="0" id="test4" hidden/>
+            <input type="text" placeholder="status a" name="he" value="0" id="test5" hidden/>
+            <input type="text" placeholder="status a" name="he" value="0" id="test6" hidden/>
+            <input type="text" placeholder="status a" name="he" value="0" id="test7" hidden/>
+            <p>test</p>
+        </div>
+    </div>
+</div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="JS/IAmNeko.js"></script>
+        <script src="JS/IAmCanvas.js"></script>
+        <script src="JS/IAmMusic.js"></script>
+        <script src="JS/IAmPokeDex.js"></script>
+        <script src="JS/IAmPics.js"></script>
+        <script language="javascript" type="text/javascript">
+
+
+
+function akt()
+{
+    q_2 = ["Sei gegrüßt, " + document.getElementById("inputbox").value + ". Du siehst ganz nach einem eifrigen Pokeraider aus! Würdest du mir und Pikachu aus einer Patsche aushelfen?"];
+    q_2 = ["Sei gegrüßt, " + document.getElementById("inputbox").value + ". Du siehst ganz nach einem eifrigen Pokeraider aus! Würdest du mir und Pikachu aus einer Patsche aushelfen?"];
+    q_12 = [document.getElementById("inputbox").value + ", jetzt los!", "GO, GO, GO, " + document.getElementById("inputbox").value];
+    q_22 = [document.getElementById("inputbox").value + "... das hast du nun davon... Kein Pikachu... keine Münzen... oh, heiliges Taubog, und kein Essen!! Miauuuzz!!"];
+}
+
+
+    let q_1 = ["Hallo, Abenteurer! Ich bin Mauzi. Wie lautet dein Name?"];
+
+    let q_2 = ["Sei gegrüßt, " + document.getElementById("inputbox").value + ". Du siehst ganz nach einem eifrigen Pokeraider aus! Würdest du mir und Pikachu aus einer Patsche aushelfen?"];
+    let a_2a = ["Ja!"];
+    let a_2b = ["Nein."];
+
+    let q_3 = ["Och, warum denn? Willst du wirklich nicht?", "Waas? Ist das dein ernst?"];
+    let a_3a = ["Mhm... nun gut, was soll ich tun?"];
+    let a_3b = ["Jap, mein vollster Ernst."];
+
+    let q_4 = ["Wirklich-wirklich nicht?", "Ich bin das einzig-sprechende Mauzi! Bin ich nicht überzeugend genug?! Willst du echt-echt nicht?"];
+    let a_4a = ["Mhm, nun gut..."];
+    let a_4b = ["Wirklich-wirklich nicht!"];
+
+    let q_5 = ["Na, dann, darf ich wohl einen gehenden Abenteurer nicht aufhalten..."];
+    let a_5a = ["Ade.", "Ja, mach's gut!", "Servus.", "Byebye, Sonny!"];
+
+
+
+    let q_11 = ["Jetzt müssten wir nur noch einmal klären, wie gut du schon als Pokeraider bist. Können wir uns auf ein schnelles und fettes Abräumen freuen?"];
+    let a_11a = ["Also, bitte, bin Anfänger."];
+    let a_11b = ["Nein, sry. Gib was einfaches."];
+    let a_11c = ["Ich will eine Challenge!"];
+    let a_11d = ["Erzähl etwas vom Impossible."];
+
+
+    let q_12 = [document.getElementById("inputbox").value + ", jetzt los!", "GO, GO, GO, " + document.getElementById("inputbox").value];
+
+    let q_13 = ["Ah, was ist los?! Ist Yoshi wieder da?!","Hast du etwas falsch gemacht?", "Warum stoppst du?! Willst du neu anfangen?", "Ach, nicht immer aufhören, wenn es am spannendsten wird...!"];
+    let a_13a = ["Ja, sry, ich mach weiter."];
+    let a_13b = ["Bitte, ein Restart!"];
+    let a_13c = ["Ich habe keine Lust mehr..."];
+
+    let q_14 = ["Bist du dir sicher, dass du neu anfangen willst? Dann gehen alle meine Münz...- ich meine, dann gehen deine Scores verloren und du musst alles von vorne sammeln."];
+
+    let q_15 = ["Aber... aber... willst du jetzt wirklich ohne die Münz...- ich meine, einfach so gehen?!"];
+
+    let q_16 = ["Okay, willst du dann tun?"];
+
+    let q_17 = ["Ha, was ist! Denkst du dein Pokeraider-Level ist doch ein anderer?"];
+
+    let q_18 = ["Haaaaalt!! Münze vergessen!!"];
+
+    let q_19 = ["Sorry, ohne Münze geht nichts..."];
+
+    let q_20 = ["Neeeeieeen..... und weg war mein Pikachu..."];
+
+    let q_21 = ["Zu langsam"];
+
+    let q_22 = [document.getElementById("inputbox").value + "... das hast du nun davon... Kein Pikachu... keine Münzen... oh, heiliges Taubog, und kein Essen!! Miauuuzz!!"];
+//ein Highscore
+    let q_23 = ["Oh, meine heilige Taubog-Feder! So... so viele Münzen, in so kurzer Zeit! Da schaut selbst der Mario alt aus der Wäsche!! Genial, fabelhaft! Ein wahrer Meister!"];
+//kein Highscrore
+    let q_24 = ["Sehr gut... wir haben genügend Münzen um für heute königlich zu tafeln. Aber du solltest dich hier und da bessern, damit wir sie alle schneller haben! Ich dachte, für einen Moment Yoshi würde vorbeischauen... "];
+
+
+//19
+    let q_6 = ["Na, das ist einmal eine freiwil- *hust* Hilfsbereitschaft! Die Sache ist die... Pikachu und ich sind pleite und wir müssen dringend ein paar Münzen einsammeln, wenn wir es uns gutgehen lassen wollen."]; //1...
+    let q_7 = ["So, jetzt ist es raus. Aber wir haben auch schon eine Lösung für unser Dilemma! Mario hat uns verraten, dass er seine eigenen Taschen immer auf Yoshis Island füllt! Es gibt da eingies auf das wir achten sollen."]; //2...
+    let q_8 = ["Wir müssen fertig sein, bevor Yoshi zurückkommt. Wir haben 5 Versuche alle Münzen zu sammeln. Achtet darauf, dass ihr manchmal auch spurten müsst um Hindernisse zu überwinden."]; //3...
+    let q_9 = ["Pikachu wird die Münzen mit dir einsammeln... aber er hat hunger, daher wirst du ihn zu den Münzen lenken müssen. Mit <b> > </b> läufst du vorwärts, mit <b> < </b> rückwärts und mit <b> ^ </b> kannst du springen"]; //4...
+    let q_10 = ["Falls du keine einstimmende Musik brauchst, klicke auf den Pokeball um die Musik ein und auszuschalten. Ich werde dir deine Zeit, die Anzahl der zu sammelnden Münzen auf deinem Pokedex rechts zeigen."]; //5...
+
+
+    let a_6a = ["Okay..."];
+    let a_6b = ["Ich sehe... mach bitte kurz."];
+
+
+
+
+
+    let index = 1;
+    let token_index = index;
+
+    function random(a){//generiert zufällig eine gnaze Zahl zwischen 1 und a
+        let b = Math.round(a*Math.random());
+        if(b === 0){
+            b=a;
+        }
+        return b;
+    }
+
+    function fill(a_1,a_2,a_3,a_4,a_5,a_6,array_1,array_2,array_3,array_4,array_5) {//Macht richtige Kombination aus textfeld, input box und buttons sichtbar und schreibt text in diese
+        if (a_1 === 1){
+            document.getElementById("Speechbubble").style.visibility = "visible";
+            document.getElementById("Speechbubble").innerHTML = array_1[random(array_1.length)-1];
+        }
+        else{
+            document.getElementById("Speechbubble").style.visibility = "hidden";
+        }
+        if (a_2 === 1){
+            document.getElementById("inputbox").style.visibility = "visible";
+        }
+        else{
+            document.getElementById("inputbox").style.visibility = "hidden";
+        }
+        if (a_3 === 1){
+            document.getElementById("button1").style.visibility = "visible";
+            document.getElementById("button1").value = array_2[random(array_2.length)-1];
+        }
+        else{
+            document.getElementById("button1").style.visibility = "hidden";
+        }
+        if (a_4 === 1){
+            document.getElementById("button2").style.visibility = "visible";
+            document.getElementById("button2").value = array_3[random(array_3.length)-1];
+        }
+        else{
+            document.getElementById("button2").style.visibility = "hidden";
+        }
+        if (a_5 === 1){
+            document.getElementById("button3").style.visibility = "visible";
+            document.getElementById("button3").value = array_4[random(array_4.length)-1];
+        }
+        else{
+            document.getElementById("button3").style.visibility = "hidden";
+        }
+        if (a_6 === 1){
+            document.getElementById("button4").style.visibility = "visible";
+            document.getElementById("button4").value = array_5[random(array_5.length)-1];
+        }
+        else{
+            document.getElementById("button4").style.visibility = "hidden";
+        }
+    }
+    function main(){
+        switch(index){
+            case 0://Nichts
+                fill(0,0,0,0,0,0);
+                if(mode === 0){
+                    index = 1;
+                }
+                if(mode === 1){
+                    index = 13;
+                }
+                break;
+            case 1://Name?
+                fill(1,1,0,0,0,0,q_1);
+                mauzitalks();
+                miauzmiauz();
+                break;
+            case 2://Spielen?
+                fill(1,0,1,1,0,0,q_2,a_2a,a_2b);
+                document.getElementById("inputbox").style.marginTop = "620px";
+                mauzitalks();
+                break;
+            case 3://Wirklich nicht?
+                mauzitwinker();
+                fill(1,0,1,1,0,0,q_3,a_3a,a_3b);
+                break;
+            case 4://Wirklich wirklich nicht?
+                mauzitalks();
+                fill(1,0,1,1,0,0,q_4,a_4a,a_4b);
+                break;
+            case 5://Tschüss
+                mauzitwinker();
+                fill(1,0,1,0,0,0,q_5,a_5a);
+                document.getElementById("inputbox").value="";
+                document.getElementById("greet").innerHTML = "Pokedex von " + document.getElementById("inputbox").value;
+                record = "-";
+                mode = 0;
+                start = 0;
+                keyboard = 0;
+                break;
+            case 6:
+                mauzitalks();
+                fill(1,0,1,1,0,0,q_6,a_6a,a_6b);
+                mode = 1;
+                break;
+            case 7:
+                mauzitalks();
+                fill(1,0,1,1,0,0,q_7,a_6a,a_6b);
+                break;
+            case 8:
+                mauzitalks();
+                fill(1,0,1,1,0,0,q_8,a_6a,a_6b);
+                break;
+            case 9:
+                mauzitalks();
+                fill(1,0,1,1,0,0,q_9,a_6a,a_6b);
+                break;
+            case 10:
+                mauzitalks();
+                fill(1,0,1,1,0,0,q_10,a_6a,a_6b);
+                break;
+            case 11://Schwierigkeit?
+                mauzitalks();
+                fill(1,0,1,1,1,1,q_11,a_11a,a_11b,a_11c,a_11d);
+                break;
+            case 12://Los?
+                fill(1,0,0,0,0,0,q_12);
+                mauzitwinker();
+                audio.pause();
+                gamesndplay();
+                gameaudio.currentTime = 0;
+                pikachusnd();
+                audindex = 2;
+                start = 0;
+                time_real = 0;
+                index = 13;
+                break;
+            case 13://Was gibt's?
+                mauzitalks();
+                over = 1;
+                keyboard = 0;
+                token_index = index;
+                mode = 2;
+                fill(1,0,1,1,1,0,q_13,a_13a,a_13b,a_13c);
+                break;
+            case 14://Sicher Neustart?
+                mauzitalks();
+                fill(1,0,1,1,0,0,q_14,a_2a,a_2b);
+                break;
+            case 15://Sicher beenden?
+                mauzitwinker();
+                pokedexdeact();
+                fill(1,0,1,1,0,0,q_15,a_2a,a_2b);
+                break;
+            case 16://Was dann?
+                mauzitalks();
+                fill(1,0,1,1,1,0,q_16,a_13a,a_13b,a_13c);
+                break;
+            case 17://Schwierigkeit ändern?
+                mauzitwinker();
+                fill(1,0,1,1,0,0,q_17,a_2a,a_2b);
+                break;
+            case 18://Mümze vergessen!
+                fill(1,0,0,0,0,0,q_18);
+                mauzitalks();
+                index = 13;
+                break;
+            case 19://Münze verpasst!
+                mauzitalks();
+                token_index = index;
+                fill(1,0,1,1,1,0,q_19,a_13a,a_13b,a_13c);
+                break;
+            case 20://Tot!
+                mauzitalks();
+                token_index = index;
+                fill(1,0,1,1,1,0,q_20,a_13a,a_13b,a_13c);
+                break;
+            case 21://Zu langsam
+                mauzitwinker();
+                token_index = index;
+                fill(1,0,1,1,1,0,q_21,a_13a,a_13b,a_13c);
+                break;
+            case 22://Verloren
+                mauzitalks();
+                token_index = index;
+                fill(1,0,1,1,0,0,q_22,a_13b,a_13c);
+                break;
+            case 23://Gewonnen (nuer Highscore)
+                mauzitwinker();
+                token_index = index;
+                fill(1,0,1,1,0,0,q_23,a_13b,a_13c);
+                break;
+            case 24://Gewonnen (kein neuer Highscore)
+                mauzitalks();
+                token_index = index;
+                fill(1,0,1,1,0,0,q_24,a_13b,a_13c);
+                break;
+            case 25://Was dann*?
+                mauzitalks();
+                fill(1,0,1,1,0,0,q_16,a_13b,a_13c);
+                break;
+            default:
+        }
+    }
+
+    function inputbox_click(){
+        if (index = 1 && document.getElementById("inputbox").value !== ""){
+            index = 2;
+            document.getElementById("greet").innerHTML = "Pokedex von " + document.getElementById("inputbox").value;
+            akt();
+            main();
+        }
+    }
+
+    function button1_click(){
+        switch(index){
+            case 2://Spielen?
+                pika.reset("all");
+                renewdexcontent();
+                pokedexstart();
+                dexclicker();
+                index=6;
+                main();
+                break;
+            case 3://Wirklich nicht?
+                pika.reset("all");
+                renewdexcontent();
+                pokedexstart();
+                dexclicker();
+                index=6;
+                main();
+                break;
+            case 4://Wirklich, wirklich nicht?
+                pika.reset("all");
+                renewdexcontent();
+                pokedexstart();
+                dexclicker();
+                index=6;
+                main();
+                break;
+            case 5://Tschüss
+                index=0;
+                pika.reset("all");
+                document.getElementById("inputbox").value = "";
+                gameaudio.pause();
+                audio.play();
+                audio.currentTime = 0;
+                audindex = 1;
+                main();
+                break;
+            case 6:
+                index = 7;
+                main();
+                break;
+            case 7:
+                index = 8;
+                main();
+                break;
+            case 8:
+                index = 9;
+                main();
+                break;
+            case 9:
+                index = 10;
+                main();
+                break;
+            case 10:
+                index = 11;
+                main();
+                break;
+            case 11://Schwierigkeit?
+                index = 12;
+                time_real=0;
+                over = 0;
+                keyboard = 1;
+                speed_map =0;
+                document.getElementById("schwierigkeitsgrad").innerHTML ="Level: sehr einfach";
+                main();
+                break;
+            case 12://Los?
+                index = 13;
+                time_real=0;
+                over = 0;
+                keyboard = 1;
+                main();
+                break;
+            case 13://Was gibts's?
+                keyboard = 1;
+                over = 0;
+                mode = 1;
+                if(start ===  0){
+                    index = 12;
+                }
+                else{
+                    index = 0;
+                }
+                main();
+                break;
+            case 14://Sicher neustarten?
+                mode = 1;
+                time_real=0;
+                start = 0;
+                pika.reset("all");
+                over = 1;
+                keyboard = 0;
+                index = 17;
+                victorysnd.pause();
+                victorysnd.currentTime = 0;
+                main();
+                break;
+            case 15://Sicher beenden?
+                index = 5;
+                audindex =1;
+                victorysnd.pause();
+                victorysnd.currentTime = 0;
+                main();
+                break;
+            case 16://Was dann?
+                over = 0;
+                index = 12;
+                if(token_index === 13){
+                    mode = 1;
+                    if(start ===  0){
+                        index = 12;
+                    }
+                    else{
+                        index = 0;
+                    }
+                }
+                else{
+                    pika.reset();
+                    over = 0;
+                    mode = 1;
+                }
+                keyboard = 1;
+                main();
+                break;
+            case 17://Schwierigkeit ändern?
+                index = 11;
+                main();
+                break;
+            case 18://Schwierigkeit ändern?
+                index = 11;
+                main();
+                break;
+            case 19://Fail!
+            case 20://Verloren!
+            case 21://Zu langsam
+                mode = 1;
+                index = 12;
+                start = 0;
+                keyboard = 1;
+                pika.reset();
+                over = 0;
+                main();
+                break;
+            case 22://Verloren
+            case 23://Gewonnen (kein neuer Highscore)
+            case 24://Gewonnen (nuer Highscore)
+            case 25://over
+                index = 14;
+                main();
+                break;
+            default:
+        }
+    }
+
+    function button2_click(){
+        switch(index){
+            case 2://Spielen?
+                index=3;
+                main();
+                break;
+            case 3://Wirklich nicht?
+                index=4;
+                main();
+                break;
+            case 4://Wirklich wirklich nicht?
+                index=5;
+                main();
+                break;
+            case 6:
+                index = 11;
+                main();
+                break;
+            case 7:
+                index = 11;
+                main();
+                break;
+            case 8:
+                index = 11;
+                main();
+                break;
+            case 9:
+                index = 11;
+                main();
+                break;
+            case 10:
+                index = 11;
+                main();
+                break;
+            case 11://Schwierigkeit?
+                speed_map =0.02;
+                document.getElementById("schwierigkeitsgrad").innerHTML ="Level: einfach";
+                index = 12;
+                time_real=0;
+                over = 0;
+                keyboard = 1;
+                main();
+                break;
+            case 13://Was gibt's?
+                index = 14;
+                main();
+                break;
+            case 14://Sicher neustarten?
+            case 15://Sicher beenden?
+                if(life < 0 || coins_col === coins_tot){
+                    index = 25;
+                }
+                else{
+                    index = 16;
+                }
+                main();
+                break;
+            case 16://Was dann?
+                index = 14;
+                main();
+                break;
+            case 17://Schwierigkeit ändern?
+                index = 12;
+                over = 0;
+                time_real=0;
+                keyboard = 1;
+                main();
+                break;
+            case 19://Fail!
+            case 20://Verloren!
+            case 21://Zu langsam
+                index = 14;
+                main();
+                break;
+            case 22://Verloren
+            case 23://Gewonnen (kein neuer Highscore)
+            case 24://Gewonnen (nuer Highscore)
+                index = 15;
+                main();
+                break;
+            case 25:
+                index = 15;
+                main();
+                break;
+            default:
+        }
+    }
+
+    function button3_click(){
+        switch(index){
+            case 11://Schwierigkeit?
+                speed_map =0.04;
+                document.getElementById("schwierigkeitsgrad").innerHTML ="Level: mittel";
+                index = 12;
+                time_real=0;
+                over = 0;
+                keyboard = 1;
+                main();
+                break;
+                break;
+            case 13://Was gibt's?
+                index = 15;
+                main();
+                break;
+            case 16://Was dann?
+                index = 15;
+                main();
+                break;
+            case 19://Fail!
+            case 20://Verloren!
+            case 21://Zu langsam
+                index = 15;
+                main();
+                break;
+            default:
+        }
+    }
+
+    function button4_click(){
+        switch(index){
+            case 11://Schwierigkeit?
+                speed_map =0.08;
+                document.getElementById("schwierigkeitsgrad").innerHTML ="Level: schwer";
+                index = 12;
+                time_real=0;
+                over = 0;
+                keyboard = 1;
+                main();
+                break;
+                break;
+            default:
+        }
+    }
+</script>
+
+</body>
+</html>

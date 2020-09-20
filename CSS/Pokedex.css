@@ -1,0 +1,768 @@
+/* Auf und zu Animation des Dex*/
+@-webkit-keyframes slideup
+{
+    0% {
+        top: 0;
+
+    }
+    100% {
+        top: -200px;
+    }
+}
+
+@-webkit-keyframes slidedown
+{
+    0% {
+        top: 0;
+
+    }
+    100% {
+        top: 200px;
+    }
+}
+
+
+@-webkit-keyframes slideupafter
+{
+    0% {
+        top: 200px;
+
+    }
+    100% {
+        top: 0;
+    }
+}
+
+@-webkit-keyframes slidedownafter
+{
+    0% {
+        top: -200px;
+
+    }
+    100% {
+        top: 0;
+    }
+}
+
+/*Körper des Pokedex*/
+#wholepokedex
+{
+    transform: scale(0.85);
+    margin-left: 1450px;
+    margin-top: 80px;
+    position: absolute;
+    z-index: 120;
+}
+
+#wholepokedex:hover #upperdex
+{
+    box-shadow: 0 0 20px ghostwhite;
+    z-index: inherit;
+}
+
+#wholepokedex:hover #lowerdex
+{
+    box-shadow: 0 0 20px ghostwhite;
+    z-index: inherit;
+}
+
+#upperdex
+{
+    position: relative;
+    width: 400px;
+    height: 200px;
+    background-color: #a43441;
+    border-left: 5px black solid;
+    border-right: 5px black solid;
+    border-top: 5px black solid;
+    border-bottom: 8.5px black solid;
+    border-radius:  30px 30px 10px 10px;
+    z-index: 140;
+    box-shadow: inset -8px -6px 10px #d8786f;
+}
+
+#upperdex:after
+{
+    content:"";
+    width: 400px;
+    height: 200px;
+    position: absolute;
+    border-radius:  30px 30px 5px 5px;
+    z-index: 195;
+    box-shadow: inset 8px 6px 10px #6e322d;
+}
+
+#upperdex:before
+{
+    content:"";
+    height:55px;
+    width:100px;
+    margin-top: 155px;
+    margin-left: 150px;
+    border-radius: 90px 90px 0 0;
+    background:deepskyblue;
+    box-shadow: 0 0 10px deepskyblue;
+    position: absolute;
+    z-index: 220;
+}
+
+#splendidaup
+{
+    margin-top: 5px;
+    margin-left: 130px;
+    position: absolute;
+    width:120px;
+    height:195px;
+    background:#d8786f;
+    transform: skew(-30deg);
+    -webkit-transform: skew(-30deg);
+    filter: blur(2px);
+    opacity: 0.5;
+    z-index: 155;
+}
+
+#splendidaup:after
+{
+    content: "";
+    margin-left: -40px;
+    position: absolute;
+    width:20px;
+    height:195px;
+    background:#d8786f;
+    filter: blur(2px);
+    z-index: 155;
+}
+
+#screenbox
+{
+    position: absolute;
+    text-align: center;
+    height: 400px;
+    width: 400px;
+    z-index: 1;
+}
+
+#screen
+{
+    position: absolute;
+    margin-top: -200px;
+    margin-left: 20px;
+    height: 400px;
+    width: 370px;
+    background-color: #6fc5db;
+    box-shadow: 0 0 20px #15a7db;
+    filter: blur(5px);
+    z-index: 130;
+}
+
+.dextypo
+{
+    font-family: "PokemonGameBoyLook", cursive, sans-serif;
+    height: auto;
+    width: 310px;
+    font-size: 15pt;
+    font-weight: 900;
+    text-align: center;
+    color: #2b7373;
+    -webkit-text-stroke: 0.5px #184ca8;
+    text-shadow: 0 0 10px #eafffc;
+    position: absolute;
+    z-index: 135;
+}
+
+#lowerdex
+{
+    position: relative;
+    width: 400px;
+    height: 200px;
+    background-color: #a43441;
+    border-left: 5px black solid;
+    border-right: 5px black solid;
+    border-bottom: 5px black solid;
+    border-top: 8.5px black solid;
+    border-radius: 10px 10px 30px 30px;
+    box-shadow: inset -8px -6px 10px #d8786f;
+    z-index: 230;
+}
+
+#lowerdex:after
+{
+    content:"";
+    width: 400px;
+    height: 200px;
+    position: absolute;
+    border-radius:  5px 5px 5px 30px;
+    z-index: 195;
+    box-shadow: inset 8px 6px 10px #6e322d;
+}
+
+#lowerdex:before
+{
+    content:"";
+    height:55px;
+    width:100px;
+    margin-top: -9px;
+    margin-left: 150px;
+    border-radius: 90px 90px 0 0;
+    background:deepskyblue;
+    box-shadow: 0 0 10px deepskyblue;
+    position: absolute;
+    transform: rotate(180deg);
+    z-index: 230;
+}
+
+#splendidalow
+{
+    margin-left: 80px;
+    position: absolute;
+    width:30px;
+    height:195px;
+    background:#d8786f;
+    transform: skew(-30deg);
+    -webkit-transform: skew(-30deg);
+    filter: blur(2px);
+    opacity: 0.5;
+    z-index: 155;
+}
+
+#splendidalow:after
+{
+    content:"";
+    margin-left: 70px;
+    position: absolute;
+    width:80px;
+    height:195px;
+    background:#d8786f;
+    filter: blur(2px);
+    z-index: 155;
+}
+
+.hoch
+{
+    animation-name: slideup;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease-in-out;
+   -webkit-animation-fill-mode: forwards;
+}
+
+.runter
+{
+    animation-name: slidedown;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-fill-mode: forwards;
+}
+
+.hochafter
+{
+    animation-name: slideupafter;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-fill-mode: forwards;
+}
+
+.runterafter
+{
+    animation-name: slidedownafter;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-fill-mode: forwards;
+}
+
+/* viertelkreise links oben*/
+#firsthalfcircleleft {
+    width:100px;
+    height:100px;
+    border:1px solid #595959;
+    background: black;
+    border-radius:  30px 0 90px 0;
+    position: absolute;
+    z-index: 150;
+}
+
+#secondhalfcircleleft {
+    width: 92px;
+    height: 92px;
+    background: #a43441;
+    border-radius:  30px 0 90px 0;
+    position: absolute;
+    z-index: 160;
+}
+
+#thirdhalfcircleleft {
+    width:70px;
+    height:70px;
+    border:1px solid #595959;
+    background: black;
+    border-radius:  30px 0 90px 0;
+    position: absolute;
+    z-index: 170;
+}
+
+#fourthhalfcircleleft {
+    width:60px;
+    height:60px;
+    background: #a43441;
+    border-radius:  45px 0 90px 0;
+    position: absolute;
+    z-index: 180;
+}
+
+/* viertelkreise rechts oben*/
+
+.halfcirclerightup
+{
+    margin-left: 400px;
+    position: absolute;
+    transform: rotate(90deg);
+    z-index: 160;
+}
+
+#firsthalfcircleright {
+    width:100px;
+    height:100px;
+    border:1px solid #595959;
+    background: black;
+    border-radius:  30px 0 90px 0;
+    position: absolute;
+    z-index: 150;
+}
+
+#secondhalfcircleright {
+    width: 92px;
+    height: 92px;
+    background: #a43441;
+    border-radius:  30px 0 90px 0;
+    position: absolute;
+    z-index: 160;
+}
+
+#thirdhalfcircleright {
+    width:70px;
+    height:70px;
+    border:1px solid #595959;
+    background: black;
+    border-radius:  30px 0 90px 0;
+    position: absolute;
+    z-index: 170;
+}
+
+#fourthhalfcircleright {
+    width:60px;
+    height:60px;
+    background: #a43441;
+    border-radius:  42px 0 90px 0;
+    position: absolute;
+    z-index: 180;
+}
+
+/* viertelkreise links unten*/
+.linksunten
+{
+    position: absolute;
+    margin-top: 200px;
+    transform: rotate(-90deg);
+    z-index: 160;
+}
+
+#fhcleft {
+    width:100px;
+    height:100px;
+    border:1px solid #595959;
+    background: black;
+    border-radius:  30px 0 90px 0;
+    position: absolute;
+    z-index: 150;
+}
+
+#scndhcleft {
+    width: 92px;
+    height: 92px;
+    background: #a43441;
+    border-radius:  30px 0 90px 0;
+    position: absolute;
+    z-index: 160;
+}
+
+#thirdhcleft {
+    width:70px;
+    height:70px;
+    border:1px solid #595959;
+    background: black;
+    border-radius:  30px 0 90px 0;
+    position: absolute;
+    z-index: 170;
+}
+
+#fourthhcleft {
+    width:60px;
+    height:60px;
+    background: #a43441;
+    border-radius:  40px 0 90px 0;
+    position: absolute;
+    z-index: 180;
+}
+
+/* viertelkreise rechts unten*/
+.halfcirclerightdown
+{
+    margin-top: 200px;
+    margin-left: 400px;
+    position: absolute;
+    transform: rotate(180deg);
+    z-index: 160;
+}
+
+#fhcright {
+    width:100px;
+    height:100px;
+    border:1px solid #595959;
+    background: black;
+    border-radius:  30px 0 90px 0;
+    position: absolute;
+    z-index: 150;
+}
+
+#scndhcright {
+    width: 92px;
+    height: 92px;
+    background: #a43441;
+    border-radius:  30px 0 90px 0;
+    position: absolute;
+    z-index: 160;
+}
+
+#thirdhcright {
+    width:70px;
+    height:70px;
+    border:1px solid #595959;
+    background: black;
+    border-radius:  30px 0 90px 0;
+    position: absolute;
+    z-index: 170;
+}
+
+#fourthhcright {
+    width:60px;
+    height:60px;
+    background: #a43441;
+    border-radius:  40px 0 90px 0;
+    position: absolute;
+    z-index: 180;
+}
+
+
+/* LoadingSign animation */
+@-webkit-keyframes loadspin
+{
+    0% {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+    }
+    10% {
+        transform: rotate(90deg);
+        -webkit-transform: rotate(90deg);
+    }
+
+    30% {
+        transform: rotate(90deg);
+        -webkit-transform: rotate(90deg);
+    }
+    50% {
+        transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+    }
+
+    70% {
+        transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+    }
+
+    70% {
+        transform: rotate(50deg);
+        -webkit-transform: rotate(50deg);
+    }
+    100% {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+    }
+}
+
+
+
+/* DexLoading circles */
+#DexOpenerLow
+{
+    margin-left: 155px;
+}
+
+#innercircle
+{
+    margin-top: -40px;
+    margin-left: 15px;
+    height:30px;
+    width:60px;
+    border-radius: 90px 90px 0 0;
+    background:dodgerblue;
+    position: absolute;
+    animation: loadspin 4s infinite;
+    animation-delay: 1.5s;
+    transform-origin: bottom;
+    z-index: 270;
+}
+
+#innercircle:after
+{
+    content: "";
+    margin-top: 10px;
+    margin-left: 9px;
+    height:42px;
+    width:42px;
+    border-radius: 45px;
+    background:deepskyblue;
+    position: absolute;
+    z-index: 270;
+}
+
+#outercircle
+{
+   margin-top: -9px;
+    height:45px;
+    width:90px;
+    border-radius: 0 0 90px 90px;
+    background:lightskyblue;
+    position: absolute;
+    z-index: 250;
+    transform-origin: top;
+    animation: loadspin 4s infinite;
+
+}
+
+#outercircle:after
+{
+    content: '';
+    margin-top: -35px;
+    margin-left: 10px;
+    height:70px;
+    width:70px;
+    border-radius: 45px;
+    background:deepskyblue;
+    position: absolute;
+    z-index: 250;
+}
+
+#dot
+{
+    margin-top: -20px;
+    margin-left: 32px;
+    height:25px;
+    width:25px;
+    border-radius: 45px;
+    background:royalblue;
+    box-shadow: 0 0 10px ghostwhite;
+    position: absolute;
+    z-index: 280;
+}
+
+/* DexInnerLife*/
+#greet
+{
+    font-size: 11pt;
+    margin-left: -150px;
+    margin-top: -180px;
+}
+
+#lifeandcoinsbox
+{
+    margin-top: 100px;
+}
+
+#lifebox
+{
+    margin-top: 30px;
+    margin-bottom: 20px;
+    margin-left: -220px;
+    position: absolute;
+    z-index:135;
+}
+
+#lifenumber
+{
+    margin-top: -180px;
+    margin-left: 270px;
+    text-align: left;
+    font-size: 11pt;
+
+}
+
+#lifeicon
+{
+    background-image: url("../Picdateien/Pikalifeicon.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 55px;
+    width: 55px;
+    margin-left: 420px;
+    margin-top: -200px;
+    filter: contrast(110%) brightness(110%) hue-rotate(300deg) opacity(70%);
+    position: absolute;
+    z-index:132;
+}
+
+.gotlife
+{
+    background-image: url("../Picdateien/Pikalifeicon.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 55px;
+    width: 55px;
+    margin-left: 340px;
+    margin-top: -200px;
+    filter: contrast(110%) brightness(110%) hue-rotate(300deg) opacity(100%);
+    position: absolute;
+    z-index:135;
+    transform: scale(1.7);
+    transition: all 0.2s ease-in-out;
+}
+
+#coinbox
+{
+    margin-top: -103px;
+    margin-left: -100px;
+    position: absolute;
+    z-index:135;
+}
+
+#coinicon
+{
+    background: url("../Picdateien/coin.png") 0 0;
+    background-size: 990%;
+    background-repeat: no-repeat;
+    height: 50px;
+    width: 50px;
+    margin-left: 390px;
+    margin-top: -20px;
+    position: absolute;
+    z-index:135;
+    -webkit-filter: hue-rotate(170deg) contrast(120%) brightness(110%) opacity(70%);
+}
+
+.gotcoin
+{
+    background: url("../Picdateien/coin.png") 0 0;
+    background-size: 990%;
+    background-repeat: no-repeat;
+    height: 50px;
+    width: 50px;
+    margin-left: 320px;
+    margin-top: -20px;
+    position: absolute;
+    z-index:135;
+    -webkit-filter: hue-rotate(170deg) contrast(120%) brightness(110%) opacity(100%);
+    transform: scale(1.5);
+    transition: all 0.2s ease-in-out;
+}
+
+#coincol
+{
+    text-align: left;
+    margin-left: 150px;
+    font-size: 11pt;
+}
+
+#cointot
+{
+    margin-left: 180px;
+    font-size: 11pt;
+}
+
+#restinput
+{
+    margin-top: 130px;
+}
+
+#fortschritt
+{
+    margin-top: -100px;
+    margin-left: -113pt;
+    text-align: left;
+    font-size: 11pt;
+    border: none;
+    width: 400px;
+    height: 50px;
+    background: transparent;
+}
+
+#schwierigkeitsgrad
+{
+    width: 400px;
+    margin-top: -50px;
+    margin-left: -150px;
+    text-align: left;
+    font-size: 11pt;
+}
+
+#keyactivity
+{
+    width: 400px;
+    margin-top: -10px;
+    margin-left: -152px;
+    text-align: left;
+    font-size: 11pt;
+}
+
+#timebox
+{
+    width: 400px;
+    height: 200px;
+    margin-top: -90px;
+    margin-left: -170px;
+    font-size: 11pt;
+    position: absolute;
+    z-index: 135;
+}
+
+.counter
+{
+    position: absolute;
+    background: transparent;
+    text-align: left;
+    margin-left: 80px;
+    font-family: "PokemonGameBoyLook", cursive, sans-serif;
+    font-size: 11pt;
+    letter-spacing: 3px;
+    font-weight: 900;
+    color: #2b7373;
+    -webkit-text-stroke: 0.5px #184ca8;
+    text-shadow: 0 0 10px #eafffc;
+    z-index: 135;
+}
+#timecur
+{
+    border: none;
+    width: 400px;
+    height: 50px;
+    margin-top: -55px;
+    margin-left: 20px;
+    background: transparent;
+    font-size: 11pt;
+    position: absolute;
+    z-index: 135;
+}
+
+#timerec
+{
+    border: none;
+    margin-top: -20px;
+    margin-left: 20px;
+    width: 400px;
+    height: 50px;
+    font-size: 11pt;
+    background: transparent;
+    position: absolute;
+    z-index: 135;
+}
